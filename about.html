@@ -1,0 +1,372 @@
+<!-- lookie here who the hell is poking around in devtools te hee-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us : gayboi.club</title>
+  <meta name="description" content="Energyboy & Glitchy : the two idiots behind this site">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/avatar.jpg">
+  <style>
+    /* --- Leetify Stats Styles --- */
+    .leetify-section {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .leetify-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .leetify-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-tertiary);
+      font-weight: 500;
+      font-family: var(--mono);
+    }
+
+    .leetify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: var(--fg-tertiary);
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+
+    .leetify-badge:hover {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+
+    .leetify-badge img {
+      height: 20px;
+      width: auto;
+    }
+
+    .leetify-ratings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+
+    .leetify-overview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .leetify-overview-item {
+      flex: 1;
+      min-width: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      text-align: center;
+      transition: border-color var(--transition);
+    }
+
+    .leetify-overview-item:hover {
+      border-color: var(--border-hover);
+    }
+
+    .leetify-overview-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fg-tertiary);
+      font-family: var(--mono);
+      margin-bottom: 4px;
+    }
+
+    .leetify-overview-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .leetify-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      color: #F84982;
+      font-weight: 500;
+      text-decoration: underline;
+      margin-top: 12px;
+      transition: opacity var(--transition);
+    }
+
+    .leetify-view-link:hover {
+      opacity: 0.7;
+    }
+
+    .leetify-loading {
+      text-align: center;
+      padding: 24px;
+      color: var(--fg-tertiary);
+      font-size: 0.85rem;
+      font-family: var(--mono);
+    }
+
+    .leetify-loading .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--fg-tertiary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .leetify-error {
+      text-align: center;
+      padding: 20px;
+      color: var(--fg-tertiary);
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      background: var(--surface);
+      border-radius: var(--radius);
+    }
+
+    .leetify-section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fg-tertiary);
+      font-family: var(--mono);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .leetify-ratings {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .leetify-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/avatar.jpg" alt="Energy & Glitchy" width="28" height="28">
+        gayboi.club
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about" class="active">About Us</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/webring">Webring</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-wrapper">
+    <div class="page-header">
+      <div class="breadcrumb">/ about</div>
+      <h1>meet the couple :p</h1>
+      <p class="subtitle">two dumbasses, one communist braincell, both not knowing what the hell the other is doing</p>
+    </div>
+
+    <hr class="divider">
+
+    <section class="section" id="energy">
+      <div class="profile">
+        <div class="profile-block">
+          <div class="profile-name">Energyboy</div>
+          <div class="profile-handle">a.k.a. Energykisser</div>
+          <div class="profile-bio">
+            I just love my boyfriend glitchy :3<br>
+            <a href="/energyboy" style="font-size: 0.85rem; margin-top: 8px; display: inline-block;">→ Visit my personal site</a>
+          </div>
+          <ul class="profile-details">
+            <li>
+              <span class="detail-label">alias</span>
+              <span>a.k.a. Energykisser</span>
+            </li>
+            <li>
+              <span class="detail-label">attributes</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;">
+                <span class="card-tag" title="stop saying you're stupid :p (glitchy)" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">stupid<sup>not really</sup></span>
+                <span class="card-tag" title=":3c" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">Cute</span>
+                <span class="card-tag" title="who the fuck could have known" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">Energetic</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Leetify CS2 Stats -->
+          <div class="leetify-section" id="leetify-stats">
+            <div class="leetify-header">
+              <span class="leetify-title">CS2 Stats</span>
+              <a href="https://leetify.com" target="_blank" rel="noopener" class="leetify-badge">
+                <img src="assets/Leetify Badge White Large.png" alt="Data Provided by Leetify" class="leetify-badge-img">
+              </a>
+            </div>
+            <div class="leetify-loading" id="leetify-loading">
+              <span class="spinner"></span>loading stats...
+            </div>
+            <div id="leetify-content" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="glitchy">
+      <div class="profile">
+        <div class="profile-block">
+          <div class="profile-name">Glitchy</div>
+          <div class="profile-handle">a.k.a. Glitchkisser</div>
+          <div class="profile-bio">
+            i love my boywife energyboy :p<br>
+            proficient developer<br>
+            breaks stuff for enjoyment, fixes them out of annoyance
+            <!-- <img src="test" width="0" height="0" onerror="alert('hehe xss')"> hehe -->
+          </div>
+          <ul class="profile-details">
+            <li>
+              <span class="detail-label">attributes</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;">
+                <span class="card-tag" title="a minority of 500s i cause are on my sites" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">HTTP/500</span>
+                <span class="card-tag" title="silly :p" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">hehe &gt;:3</span>
+                <span class="card-tag" title="take one glance at what i've written to prove this" style="margin-top: 0; cursor: pointer; padding: 4px 8px; border-radius: 4px; text-decoration: underline dotted;">unserious</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="story">
+      <div class="section-title">our story</div>
+      <div class="prose">
+        <p class="subtitle" style="font-style: italic; color: var(--fg-tertiary); margin-bottom: 16px;">i am absolutely shit at writing stuff (glitchy)</p>
+        <p>anyways so it started off when we met each other on discord, chatting, nerding out over discord ToS violations, and oop we kind of realised we like each other gradually :3c <!-- i like selfbots :3c --></p>
+        <p>And yeah we've been together every day ever since, inseparable is an understatement at this point, and every now and then we overclock our neurons from 1hz to 4hz to make really stupid decisions (like starting a project or buying a domain name because funnies)</p>
+        <p>This site basically exists to show ourselves off as a duo, making stuff together; and hey maybe we might make something more than two people like /j</p>
+        <p>Soon we'll be married, soon &gt;.&lt; i can't wait :D</p>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--fg-tertiary); margin-top: 24px;">gayboi.club : est. 2025</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="toolkit">
+      <div class="section-title">our toolkit</div>
+      <p style="font-size: 0.9rem; color: var(--fg-secondary); margin-bottom: 16px;">the tools we use to build our silly little things.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span class="card-tag" title="'why the fuck is this None'" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">Python</span>
+        <span class="card-tag" title="[object Object]" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">JavaScript</span>
+        <span class="card-tag" style="margin-top: 0; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius);">HTML/CSS</span>
+        <span class="card-tag" title="when are we moving to matrix again" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">Pycord</span>
+        <span class="card-tag" title="well at least it's not json" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">MariaDB</span>
+        <span class="card-tag" title="Old reliable" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">Node.js</span>
+        <span class="card-tag" title="version control we consistently neglect coz yolo" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">Git</span>
+        <span class="card-tag" title="The secret ingredient" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">:3</span>
+        <span class="card-tag" title="energy you gotta try some" style="margin-top: 0; cursor: pointer; padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius); text-decoration: underline dotted;">Caffeine</span>
+      </div>
+    </section>
+
+    <div class="callout">
+      <span>Together since <strong>October 12, 2025</strong>. Still going strong. Still annoying each other daily.</span>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>gayboi.club : est. 2025 : Energyboy & Glitchy</span>
+      <span>made with love by gayboi.club :p</span>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    (function() {
+      const STEAM64_ID = '76561199524488999';
+      const API_BASE = 'https://api-public.cs-prod.leetify.com';
+
+      // Pick the right badge for light/dark mode
+      function updateBadgeTheme() {
+        const badge = document.querySelector('.leetify-badge-img');
+        if (!badge) return;
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        badge.src = isDark
+          ? 'assets/Leetify Badge White Large.png'
+          : 'assets/Leetify Badge Black Large.png';
+      }
+      updateBadgeTheme();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateBadgeTheme);
+
+      fetch(`${API_BASE}/v3/profile?steam64_id=${STEAM64_ID}`)
+        .then(res => {
+          if (!res.ok) throw new Error(`API returned ${res.status}`);
+          return res.json();
+        })
+        .then(data => {
+          document.getElementById('leetify-loading').style.display = 'none';
+          const container = document.getElementById('leetify-content');
+          container.style.display = 'block';
+          container.innerHTML = buildLeetifyContent(data);
+        })
+        .catch(err => {
+          console.error('Leetify API error:', err);
+          document.getElementById('leetify-loading').innerHTML =
+            '<div class="leetify-error">couldn\'t load stats right now — try again later</div>';
+        });
+
+      function buildLeetifyContent(data) {
+        const r = data.rating || {};
+        const ranks = data.ranks || {};
+
+        let html = '<div class="leetify-overview">';
+        html += overviewItem('Win Rate', data.winrate != null ? (data.winrate * 100).toFixed(1) + '%' : '—');
+        if (ranks.premier) html += overviewItem('Premier', ranks.premier.toLocaleString());
+        if (ranks.leetify != null) html += overviewItem('Leetify Rating', ranks.leetify.toFixed(2));
+        if (r.aim != null) html += overviewItem('Aim', r.aim.toFixed(1));
+        html += '</div>';
+
+        // View on Leetify link
+        html += `<a href="https://leetify.com/app/profile/${STEAM64_ID}" target="_blank" rel="noopener" class="leetify-view-link">View on Leetify →</a>`;
+
+        return html;
+      }
+
+      function overviewItem(label, value) {
+        return `<div class="leetify-overview-item"><div class="leetify-overview-label">${label}</div><div class="leetify-overview-value">${value}</div></div>`;
+      }
+    })();
+  </script>
+</body>
+</html>

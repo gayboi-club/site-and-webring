@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects : gayboi.club</title>
+  <meta name="description" content="Projects by gayboi.club">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/avatar.jpg">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/avatar.jpg" alt="Energy & Glitchy" width="28" height="28">
+        gayboi.club
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/projects" class="active">Projects</a></li>
+        <li><a href="/webring">Webring</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-wrapper">
+    <div class="page-header">
+      <div class="breadcrumb">/ projects</div>
+      <h1>our projects</h1>
+      <p class="subtitle">stuff we've built, broken, and/or abandoned</p>
+    </div>
+
+    <div id="projects-container"></div>
+
+    <div class="callout">
+      <span>Most of these are works in progress. We build when inspiration hits, which is either all the time or never.</span>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>gayboi.club : est. 2025 : Energyboy & Glitchy</span>
+      <span>made with love by gayboi.club :p</span>
+    </div>
+  </footer>
+  
+  <noscript>btw you need js on</noscript>
+
+  <script src="nav.js"></script>
+  <script>
+    function buildTag(tag) {
+      const span = document.createElement('span');
+      span.className = 'card-tag';
+      span.style.marginTop = '0';
+      if (tag.highlight) {
+        span.style.background = 'var(--fg)';
+        span.style.color = 'var(--bg)';
+      }
+      span.textContent = tag.label;
+      return span;
+    }
+
+    function buildCard(project) {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const title = document.createElement('div');
+      title.className = 'card-title';
+      title.textContent = project.title;
+      card.appendChild(title);
+
+      const desc = document.createElement('div');
+      desc.className = 'card-desc';
+      desc.textContent = project.desc;
+      card.appendChild(desc);
+
+      if (project.links && project.links.length > 0) {
+        const linkLine = document.createElement('div');
+        linkLine.className = 'card-desc';
+        linkLine.style.cssText = 'margin-top: 8px; font-size: 0.8rem;';
+        project.links.forEach((link, i) => {
+          const a = document.createElement('a');
+          a.href = link.href;
+          a.target = '_blank';
+          a.style.textDecoration = 'underline';
+          a.textContent = link.label;
+          linkLine.appendChild(a);
+          if (i < project.links.length - 1) {
+            linkLine.appendChild(document.createTextNode(' \u00b7 '));
+          }
+        });
+        card.appendChild(linkLine);
+      }
+
+      if (project.tags && project.tags.length > 0) {
+        const tagRow = document.createElement('div');
+        tagRow.style.cssText = 'margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px;';
+        project.tags.forEach(tag => tagRow.appendChild(buildTag(tag)));
+        card.appendChild(tagRow);
+      }
+
+      return card;
+    }
+
+    function buildSection(section, addDivider) {
+      const frag = document.createDocumentFragment();
+
+      if (addDivider) {
+        frag.appendChild(document.createElement('hr')).className = 'divider';
+      }
+
+      const el = document.createElement('section');
+      el.className = 'section';
+
+      const sectionTitle = document.createElement('div');
+      sectionTitle.className = 'section-title';
+      sectionTitle.textContent = section.label;
+      el.appendChild(sectionTitle);
+
+      const grid = document.createElement('div');
+      grid.className = 'card-grid';
+      section.projects.forEach(project => grid.appendChild(buildCard(project)));
+      el.appendChild(grid);
+
+      frag.appendChild(el);
+      return frag;
+    }
+
+    fetch('projects.json')
+      .then(r => {
+        if (!r.ok) throw new Error(`Failed to load projects.json: ${r.status}`);
+        return r.json();
+      })
+      .then(data => {
+        const container = document.getElementById('projects-container');
+        data.sections.forEach((section, i) => {
+          container.appendChild(buildSection(section, i > 0));
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        const container = document.getElementById('projects-container');
+        container.innerHTML = '<p style="color: red;">Failed to load projects.</p>';
+      });
+  </script>
+</body>
+</html>
