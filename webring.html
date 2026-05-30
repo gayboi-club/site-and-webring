@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webring : gayboi.club</title>
+  <meta name="description" content="gayboi.club webring members">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/avatar.jpg">
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/avatar.jpg" alt="Energy & Glitchy" width="28" height="28">
+        gayboi.club
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/webring" class="active">Webring</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-wrapper">
+    <div class="page-header">
+      <div class="breadcrumb">/ webring</div>
+      <h1>gayboi.club webring</h1>
+      <p class="subtitle">a collection of cool sites by our friends</p>
+    </div>
+
+    <section class="section">
+      <div class="section-title">members</div>
+      <ul class="links-list" id="webring-list">
+        <li style="padding: 16px; color: var(--fg-secondary);">loading members...</li>
+      </ul>
+    </section>
+
+    <div class="callout">
+      <div>
+        <strong style="display: block; margin-bottom: 8px;">wanna join?</strong>
+        <span>If you want to join our webring, just hop into our <a href="https://discord.com/invite/jyuMA8uaAv"
+            target="_blank" style="color: var(--accent); font-weight: bold; text-decoration: none;">Discord server</a>
+          and let us know!</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>gayboi.club : est. 2025 : Energyboy & Glitchy</span>
+      <span>made with love by gayboi.club :p</span>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    fetch('/api/webring/list')
+      .then(res => res.json())
+      .then(members => {
+        const list = document.getElementById('webring-list');
+        list.innerHTML = '';
+        members.forEach(m => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = m.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+
+          const labelSpan = document.createElement('span');
+          labelSpan.className = 'link-label';
+          labelSpan.textContent = m.name;
+
+          const handleSpan = document.createElement('span');
+          handleSpan.className = 'link-handle';
+          handleSpan.textContent = m.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+          a.appendChild(labelSpan);
+          a.appendChild(handleSpan);
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById('webring-list').innerHTML = '<li style="padding: 16px; color: red;">failed to load members :(</li>';
+      });
+  </script>
+</body>
+
+</html>

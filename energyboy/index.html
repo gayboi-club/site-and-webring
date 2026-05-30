@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energyboy ~ gayboi.club</title>
+  <link rel="icon" href="/assets/avatar.jpg" />
+  <link rel="stylesheet" href="/energyboy/energyboy.css" />
+</head>
+
+<body>
+
+  <!-- Brutalist / Wireframe Navbar -->
+  <nav class="nav">
+    <a href="/" class="nav-brand">[ gayboi.club ]</a>
+    <div class="nav-links">
+      <a href="/">home</a>
+      <a href="/about">about</a>
+      <a href="/projects">projects</a>
+      <a href="/webring">webring</a>
+      <a href="/contact">contact</a>
+    </div>
+  </nav>
+
+  <main class="wrapper">
+
+    <!-- HEADER ROW -->
+    <div class="row header-row">
+      <div class="cell cell-avatar">
+        <img src="/assets/energykisser.png" alt="Avatar" class="avatar" />
+      </div>
+      <div class="cell cell-main">
+        <h1>ENERGYBOY</h1>
+        <p class="subtitle">a.k.a. Energykisser</p>
+        <p class="bio">just a guy who loves his boyfriend glitchy :3<br />gamer · silly · lover of things</p>
+      </div>
+    </div>
+
+    <!-- CONTACT ROW -->
+    <div class="row">
+      <div class="cell cell-title">CONTACT</div>
+      <div class="cell cell-content">
+        <div class="link-grid">
+          <a href="https://discord.com/invite/jyuMA8uaAv" target="_blank">> Discord</a>
+          <a href="https://github.com/energyboy-owo" target="_blank">> GitHub</a>
+          <a href="https://steamcommunity.com/id/energyboy-owo" target="_blank">> Steam</a>
+          <a href="https://www.youtube.com/@Energyboy-OwO" target="_blank">> YouTube</a>
+          <a href="https://www.reddit.com/user/Energyboy-OwO/" target="_blank">> Reddit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG ROW -->
+    <div class="row">
+      <div class="cell cell-title">THOUGHTS</div>
+      <div class="cell cell-content p-0">
+        <div id="blog-posts" class="blog-list">
+          <!-- rendered from JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIENDS ROW -->
+    <div class="row">
+      <div class="cell cell-title">COOL SITES</div>
+      <div class="cell cell-content p-0">
+        <div class="friends-list" id="friends-grid">
+          <!-- rendered from JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBRING ROW -->
+    <div class="row">
+      <div class="cell cell-title">WEBRING</div>
+      <div class="cell cell-content" style="display: flex; justify-content: space-between; align-items: center; padding: 24px;">
+        <a href="/api/webring/prev?id=energy" style="font-weight: 700;">&lt; PREV</a>
+        <a href="/api/webring/random" style="font-weight: 700;">RANDOM</a>
+        <a href="/api/webring/next?id=energy" style="font-weight: 700;">NEXT &gt;</a>
+      </div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="row">
+      <div class="cell cell-title">CS2 STATS</div>
+      <div class="cell cell-content">
+        <a href="https://leetify.com" target="_blank" rel="noopener" class="leetify-link">
+          <img src="/assets/Leetify Badge White Large.png" alt="Data by Leetify" id="leetify-badge-img"
+            class="leetify-badge" />
+        </a>
+        <div id="leetify-loading" class="system-msg">loading stats from external API...</div>
+        <div id="leetify-content" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- LOGBOOK ROW -->
+    <div class="row">
+      <div class="cell cell-title">LOGBOOK</div>
+      <div class="cell cell-content">
+        <p class="system-msg" style="margin-bottom: 16px;">// leave a message</p>
+        <form id="logbook-form" autocomplete="off" class="form">
+          <div class="form-inputs">
+            <input type="text" id="lb-name" name="name" maxlength="50" placeholder="NAME" required />
+            <input type="text" id="lb-site" name="site" maxlength="100" placeholder="YOUR SITE (OPTIONAL)" />
+            <textarea id="lb-message" name="message" maxlength="280" rows="3" placeholder="MESSAGE" required></textarea>
+            <input type="text" name="bamboolze" id="lb-honeypot" tabindex="-1" aria-hidden="true"
+              style="display:none" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="lb-submit">send message :3</button>
+            <span id="char-count" class="system-msg">0/280</span>
+          </div>
+          <div id="form-status" class="system-msg" style="margin-top: 12px;"></div>
+        </form>
+
+        <div id="logbook-entries" class="logbook-entries" style="margin-top: 32px;">
+          <div class="system-msg">loading...</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="/nav.js"></script>
+  <script src="/energyboy/energyboy.js"></script>
+</body>
+
+</html>

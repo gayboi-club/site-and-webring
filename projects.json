@@ -1,0 +1,174 @@
+{
+  "sections": [
+    {
+      "id": "live",
+      "label": "live",
+      "projects": [
+        {
+          "title": "meowtiplayer",
+          "desc": "A multiplayer mod for ultrakill",
+          "links": [{
+            "label": "Repository",
+            "href": "https://github.com/gayboi-club/meowers-multiplayer"
+          }],
+          "tags": [
+            {
+              "label": "mod"
+            },
+            {
+              "label": "ULTRAKILL",
+              "highlight": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archived",
+      "label": "archived",
+      "projects": [
+        {
+          "title": "kirkaio",
+          "desc": "A python api wrapper for kirka's api",
+          "links": [
+            {
+              "label": "PyPI",
+              "href": "https://pypi.org/project/kirkaio/"
+            },
+            {
+              "label": "Repository",
+              "href": "https://github.com/fags-inc/kirkaio"
+            }
+          ],
+          "tags": [
+            {
+              "label": "api"
+            },
+            {
+              "label": "library"
+            },
+            {
+              "label": "open source"
+            },
+            {
+              "label": "collab"
+            },
+            {
+              "label": "python",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "title": "blub bot",
+          "desc": "yeah it's a bot for kirka.io",
+          "links": [
+            {
+              "label": "Add to Discord",
+              "href": "https://discord.com/oauth2/authorize?client_id=1446796951780851875"
+            },
+            {
+              "label": "Repository",
+              "href": "https://github.com/gayboi-club/blub"
+            }
+          ],
+          "tags": [
+            {
+              "label": "bot"
+            },
+            {
+              "label": "pycord",
+              "highlight": true
+            },
+            {
+              "label": "mariadb",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "title": "Blub UI",
+          "desc": "Web-based version of blub bot",
+          "links": [
+            {
+              "label": "Website",
+              "href": "https://blub.gayboi.club"
+            },
+            {
+              "label": "Repository",
+              "href": "https://github.com/gayboi-club/blub"
+            }
+          ],
+          "tags": [
+            {
+              "label": "web"
+            }
+          ]
+        },
+        {
+          "title": "kcdb",
+          "desc": "Kirka Chat Database",
+          "links": [
+            {
+              "label": "Website",
+              "href": "https://kcdb.amcalledglitchy.dev/"
+            }
+          ],
+          "tags": [
+            {
+              "label": "api"
+            },
+            {
+              "label": "collab"
+            },
+            {
+              "label": "mariadb",
+              "highlight": true
+            },
+            {
+              "label": "websockets",
+              "highlight": true
+            },
+            {
+              "label": "python",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "title": "KCDB Explorer",
+          "desc": "A modern UI for KCDB",
+          "links": [
+            {
+              "label": "Website",
+              "href": "https://kcdb.hromek.cloud/"
+            },
+            {
+              "label": "Repository",
+              "href": "https://github.com/Energyboy-OwO/KCDB-Explorer"
+            }
+          ],
+          "tags": [
+            {
+              "label": "web"
+            },
+            {
+              "label": "open source"
+            },
+            {
+              "label": "collab"
+            },
+            {
+              "label": "node",
+              "highlight": true
+            },
+            {
+              "label": "html/css/js",
+              "highlight": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
