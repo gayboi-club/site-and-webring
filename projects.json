@@ -20,6 +20,22 @@
               "highlight": true
             }
           ]
+        },{
+          "title": "Webring",
+          "desc": "A silly lil webring we made :3c",
+          "links": [{
+            "label": "Repository",
+            "href": "https://github.com/gayboi-club/site-and-webring"
+          },{
+            "label": "Page",
+            "href": "https://gayboi.club/webring"
+          }],
+          "tags": [
+            {
+              "label": "web", 
+              "highlight": true
+            }
+          ]
         }
       ]
     },
