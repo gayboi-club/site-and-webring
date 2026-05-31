@@ -71,6 +71,7 @@ function writeLogbook(entries) {
 // --- Webring System ---
 const WEBRING_FILE = path.join(__dirname, 'members.json');
 let webringCache = [];
+let webringLastMtime = 0;
 
 function loadWebring() {
   try {
@@ -78,21 +79,33 @@ function loadWebring() {
     const parsed = JSON.parse(data);
     if (Array.isArray(parsed)) {
       webringCache = parsed;
-      console.log(`Loaded ${webringCache.length} webring members.`);
+      console.log(`[webring] Loaded ${webringCache.length} members.`);
     }
   } catch (err) {
-    console.error('Error loading webring:', err.message);
+    console.error('[webring] Error loading:', err.message);
     // Retain previous cache on error for redundancy
   }
 }
 
-if (fs.existsSync(WEBRING_FILE)) {
-  loadWebring();
-  fs.watch(WEBRING_FILE, (eventType) => {
-    if (eventType === 'change') {
-      setTimeout(loadWebring, 100);
+// Polling-based hot-reload: fs.watch is unreliable on many platforms
+// (editors that write-then-rename, scp, git pull, NFS, etc.)
+// We poll every 2s for mtime changes — cheap and bulletproof.
+function pollWebring() {
+  try {
+    const stat = fs.statSync(WEBRING_FILE);
+    const mtime = stat.mtimeMs;
+    if (mtime !== webringLastMtime) {
+      webringLastMtime = mtime;
+      loadWebring();
     }
-  });
+  } catch (err) {
+    // File temporarily missing during a write-then-rename — ignore
+  }
+}
+
+if (fs.existsSync(WEBRING_FILE)) {
+  pollWebring(); // initial load
+  setInterval(pollWebring, 2000);  // check every 2s
 }
 
 // --- Resolve a clean URL path to a file path ---
@@ -235,7 +248,10 @@ http.createServer((req, res) => {
     }
 
     if (!action || action === 'list') {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      });
       return res.end(JSON.stringify(webringCache));
     }
 
@@ -243,7 +259,13 @@ http.createServer((req, res) => {
     let targetMember;
 
     if (action === 'random') {
-      targetMember = webringCache[Math.floor(Math.random() * webringCache.length)];
+      // Exclude the requesting member so you never land on yourself
+      const candidates = memberId
+        ? webringCache.filter(m => m.id !== memberId)
+        : webringCache;
+      // If there's only one member total, fall back to full list
+      const pool = candidates.length > 0 ? candidates : webringCache;
+      targetMember = pool[Math.floor(Math.random() * pool.length)];
     } else {
       // Redundancy: if ID is invalid or missing, fallback to random instead of failing
       if (currentIndex === -1) {
