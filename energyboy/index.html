@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Energyboy ~ gayboi.club</title>
+  <meta name="description" content=":3">
   <link rel="icon" href="/assets/avatar.jpg" />
   <link rel="stylesheet" href="/energyboy/energyboy.css" />
 </head>
@@ -14,7 +15,8 @@
   <!-- Brutalist / Wireframe Navbar -->
   <nav class="nav">
     <a href="/" class="nav-brand">[ gayboi.club ]</a>
-    <div class="nav-links">
+    <button class="nav-toggle" id="eb-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">≡</button>
+    <div class="nav-links" id="eb-nav-links">
       <a href="/">home</a>
       <a href="/about">about</a>
       <a href="/projects">projects</a>
@@ -22,6 +24,12 @@
       <a href="/contact">contact</a>
     </div>
   </nav>
+
+  <!-- Sub-navigation for energyboy sections -->
+  <div class="sub-nav">
+    <a href="/energyboy" class="active">profile</a>
+    <a href="/energyboy/gear">gear</a>
+  </div>
 
   <main class="wrapper">
 
@@ -74,7 +82,8 @@
     <!-- WEBRING ROW -->
     <div class="row">
       <div class="cell cell-title">WEBRING</div>
-      <div class="cell cell-content" style="display: flex; justify-content: space-between; align-items: center; padding: 24px;">
+      <div class="cell cell-content"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 24px;">
         <a href="/api/webring/prev?id=energy" style="font-weight: 700;">&lt; PREV</a>
         <a href="/api/webring/random" style="font-weight: 700;">RANDOM</a>
         <a href="/api/webring/next?id=energy" style="font-weight: 700;">NEXT &gt;</a>
@@ -122,7 +131,25 @@
 
   </main>
 
-  <script src="/nav.js"></script>
+  <script>
+    // Mobile nav toggle for energyboy page
+    (function () {
+      const toggle = document.getElementById('eb-nav-toggle');
+      const links = document.getElementById('eb-nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+        });
+        links.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            links.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    })();
+  </script>
   <script src="/energyboy/energyboy.js"></script>
 </body>
 

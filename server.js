@@ -318,8 +318,9 @@ http.createServer((req, res) => {
     return res.end('<body style="font-family:monospace;padding:40px"><h1>404</h1><p>not found :p &mdash; <a href="/">go home</a></p></body>');
   }
 
-  // Theme injection for energyboy/index.html
-  if (filePath.endsWith(path.join('energyboy', 'index.html')) && catppuccin && catppuccin[ACTIVE_THEME]) {
+  // Theme injection for any page under energyboy/
+  const isEnergyboy = filePath.includes(path.join('energyboy')) && filePath.endsWith('.html');
+  if (isEnergyboy && catppuccin && catppuccin[ACTIVE_THEME]) {
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
         res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
