@@ -18,12 +18,16 @@
     "id": "xar",
     "name": "Xargana :3",
     "url": "https://xargana.tr/",
-    "aliases": ["blahaj.tr"]
+    "aliases": [
+      "blahaj.tr"
+    ]
   },
   {
     "id": "qweru",
     "name": "Qweru :3",
     "url": "https://qweru.xyz/",
-    "aliases": ["gullible.fyi"]
+    "aliases": [
+      "gullible.fyi"
+    ]
   }
 ]
