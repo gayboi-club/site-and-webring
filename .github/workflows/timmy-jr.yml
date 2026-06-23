@@ -13,6 +13,9 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
+            - name: Hard reset to clean any local changes
+              run: git reset --hard
+
             - name: Install dependencies
               run: npm install --production
 
