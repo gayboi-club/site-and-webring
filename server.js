@@ -103,10 +103,8 @@ function pollWebring() {
   }
 }
 
-if (fs.existsSync(WEBRING_FILE)) {
-  pollWebring(); // initial load
-  setInterval(pollWebring, 2000);  // check every 2s
-}
+pollWebring(); // initial load
+setInterval(pollWebring, 2000);  // check every 2s
 
 // --- Resolve a clean URL path to a file path ---
 function resolveFilePath(urlPath) {
