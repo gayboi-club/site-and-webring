@@ -8,6 +8,7 @@ on:
 jobs:
     deploy:
         runs-on: self-hosted
+        environment: tokens
 
         steps:
             - name: Checkout code
