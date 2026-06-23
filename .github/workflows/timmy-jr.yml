@@ -1,4 +1,3 @@
-# test run
 name: timmy-jr
 
 on:
@@ -17,18 +16,21 @@ jobs:
               with:
                   clean: false
 
-            - name: Reset tracked files, keep gitignored files (members.json, logbook.json, .env)
+            - name: Fix file ownership
+              run: chown -R timur:timur .
+
+            - name: Reset tracked files, keep gitignored files
               run: |
-                  git checkout -- .
-                  git clean -fd
+                  sudo -u timur git checkout -- .
+                  sudo -u timur git clean -fd
 
             - name: Install dependencies
-              run: npm install --production
+              run: sudo -u timur npm install --production
 
             - name: Kill old PM2 processes and start fresh
               env:
                   DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
                   DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
               run: |
-                  pm2 delete ecosystem.config.js 2>/dev/null || true
-                  pm2 start ecosystem.config.js --update-env
+                  sudo -u timur pm2 delete ecosystem.config.js 2>/dev/null || true
+                  sudo -u timur pm2 start ecosystem.config.js --update-env
