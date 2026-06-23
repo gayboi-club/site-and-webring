@@ -24,10 +24,11 @@ jobs:
             - name: Install dependencies
               run: npm install --production
 
-            - name: Kill old PM2 processes and start fresh
+            - name: Free up port 2999 and start fresh
               env:
                   DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
                   DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
               run: |
+                  sudo kill $(sudo lsof -t -i :2999) 2>/dev/null || true
                   pm2 delete ecosystem.config.js 2>/dev/null || true
                   pm2 start ecosystem.config.js --update-env
