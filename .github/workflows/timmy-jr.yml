@@ -16,21 +16,18 @@ jobs:
               with:
                   clean: false
 
-            - name: Fix file ownership
-              run: chown -R timur:timur .
-
             - name: Reset tracked files, keep gitignored files
               run: |
-                  sudo -u timur git checkout -- .
-                  sudo -u timur git clean -fd
+                  git checkout -- .
+                  git clean -fd
 
             - name: Install dependencies
-              run: sudo -u timur npm install --production
+              run: npm install --production
 
             - name: Kill old PM2 processes and start fresh
               env:
                   DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
                   DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
               run: |
-                  sudo -u timur pm2 delete ecosystem.config.js 2>/dev/null || true
-                  sudo -u timur pm2 start ecosystem.config.js --update-env
+                  pm2 delete ecosystem.config.js 2>/dev/null || true
+                  pm2 start ecosystem.config.js --update-env
