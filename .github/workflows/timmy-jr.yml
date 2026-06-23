@@ -13,6 +13,13 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                  clean: false
+
+            - name: Reset tracked files, keep gitignored files (members.json, logbook.json, .env)
+              run: |
+                  git checkout -- .
+                  git clean -fd
 
             - name: Install dependencies
               run: npm install --production
