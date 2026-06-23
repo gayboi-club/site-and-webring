@@ -30,5 +30,6 @@ jobs:
                   DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
               run: |
                   sudo kill $(sudo lsof -t -i :2999) 2>/dev/null || true
+                  sudo pm2 delete ecosystem.config.js 2>/dev/null || true
                   pm2 delete ecosystem.config.js 2>/dev/null || true
                   pm2 start ecosystem.config.js --update-env
