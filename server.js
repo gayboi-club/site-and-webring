@@ -240,17 +240,27 @@ http.createServer((req, res) => {
     res.setHeader('Expires', '0');
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    if (webringCache.length === 0) {
+    if (!action || action === 'list') {
+      // Read fresh from disk every time for list
+      try {
+        const data = fs.readFileSync(WEBRING_FILE, 'utf8');
+        const members = JSON.parse(data);
+        if (Array.isArray(members)) {
+          webringCache = members;
+          res.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+          });
+          return res.end(data);
+        }
+      } catch (e) {}
       res.writeHead(404, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ error: 'Webring is empty or offline.' }));
     }
 
-    if (!action || action === 'list') {
-      res.writeHead(200, {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-      });
-      return res.end(JSON.stringify(webringCache));
+    if (webringCache.length === 0) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'Webring is empty or offline.' }));
     }
 
     let currentIndex = webringCache.findIndex(m => m.id === memberId);
