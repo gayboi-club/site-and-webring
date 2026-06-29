@@ -5,13 +5,13 @@
       "label": "live",
       "projects": [
         {
-          "title": "meowtiplayer",
-          "desc": "A multiplayer mod for ultrakill",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/meowers-multiplayer"}],
-          "tags": [{"label": "mod"}, {"label": "ULTRAKILL", "highlight": true}]
+          "title": "owomd",
+          "desc": "A custom markdown format for gays, by gays :3c",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/owomd"}],
+          "tags": [{"label": "library"}, {"label": "open source"}, {"label": "python", "highlight": true}]
         },
         {
-          "title": "Webring",
+          "title": "site and webring",
           "desc": "A silly lil webring we made :3c",
           "links": [
             {"label": "Repository", "href": "https://github.com/gayboi-club/site-and-webring"},
@@ -20,28 +20,10 @@
           "tags": [{"label": "web", "highlight": true}]
         },
         {
-          "title": "Pull-Em-Shorts-Off",
-          "desc": "A Firefox addon to remove Shorts from the YouTube feed",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/Pull-Em-Shorts-Off"}],
-          "tags": [{"label": "browser extension"}, {"label": "javascript", "highlight": true}]
-        },
-        {
-          "title": "owomd",
-          "desc": "A custom markdown format for gays, by gays :3c",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/owomd"}],
-          "tags": [{"label": "library"}, {"label": "open source"}, {"label": "python", "highlight": true}]
-        },
-        {
-          "title": "cat-ears-meows",
-          "desc": "A silly little mod that adds cat ears and meows :3c",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/cat-ears-meows"}],
-          "tags": [{"label": "mod"}, {"label": "Minecraft", "highlight": true}, {"label": "java", "highlight": true}]
-        },
-        {
-          "title": "nyapost",
-          "desc": "Social media for the mentally unstable",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/nyapost"}],
-          "tags": [{"label": "web"}, {"label": "python", "highlight": true}]
+          "title": "meow88x31",
+          "desc": "88x31 button generator",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/meow88x31"}],
+          "tags": [{"label": "python", "highlight": true}]
         },
         {
           "title": "imperium.rs",
@@ -50,10 +32,22 @@
           "tags": [{"label": "library"}, {"label": "bot"}, {"label": "rust", "highlight": true}]
         },
         {
-          "title": "meow88x31",
-          "desc": "88x31 button generator",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/meow88x31"}],
-          "tags": [{"label": "python", "highlight": true}]
+          "title": "nyapost",
+          "desc": "Social media for the mentally unstable",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/nyapost"}],
+          "tags": [{"label": "web"}, {"label": "python", "highlight": true}]
+        },
+        {
+          "title": "cat-ears-meows",
+          "desc": "A silly little mod that adds cat ears and meows :3c",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/cat-ears-meows"}],
+          "tags": [{"label": "mod"}, {"label": "Minecraft", "highlight": true}, {"label": "java", "highlight": true}]
+        },
+        {
+          "title": "Pull-Em-Shorts-Off",
+          "desc": "A Firefox addon to remove Shorts from the YouTube feed",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/Pull-Em-Shorts-Off"}],
+          "tags": [{"label": "browser extension"}, {"label": "javascript", "highlight": true}]
         },
         {
           "title": "server-motds",
@@ -67,6 +61,27 @@
       "id": "archived",
       "label": "archived",
       "projects": [
+        {
+          "title": "meowtiplayer",
+          "desc": "A multiplayer mod for ultrakill",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/meowers-multiplayer"}],
+          "tags": [{"label": "mod"}, {"label": "ULTRAKILL", "highlight": true}]
+        },
+        {
+          "title": "lkchat",
+          "desc": "Kirka.io live chat client",
+          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/lkchat"}],
+          "tags": [{"label": "python", "highlight": true}]
+        },
+        {
+          "title": "KCDB Explorer",
+          "desc": "A modern UI for KCDB",
+          "links": [
+            {"label": "Website", "href": "https://kcdb.hromek.cloud/"},
+            {"label": "Repository", "href": "https://github.com/Energyboy-OwO/KCDB-Explorer"}
+          ],
+          "tags": [{"label": "web"}, {"label": "open source"}, {"label": "collab"}, {"label": "node", "highlight": true}, {"label": "html/css/js", "highlight": true}]
+        },
         {
           "title": "kirkaio",
           "desc": "A python api wrapper for kirka's api",
@@ -99,21 +114,6 @@
           "desc": "Kirka Chat Database",
           "links": [{"label": "Website", "href": "https://kcdb.amcalledglitchy.dev/"}],
           "tags": [{"label": "api"}, {"label": "collab"}, {"label": "mariadb", "highlight": true}, {"label": "websockets", "highlight": true}, {"label": "python", "highlight": true}]
-        },
-        {
-          "title": "KCDB Explorer",
-          "desc": "A modern UI for KCDB",
-          "links": [
-            {"label": "Website", "href": "https://kcdb.hromek.cloud/"},
-            {"label": "Repository", "href": "https://github.com/Energyboy-OwO/KCDB-Explorer"}
-          ],
-          "tags": [{"label": "web"}, {"label": "open source"}, {"label": "collab"}, {"label": "node", "highlight": true}, {"label": "html/css/js", "highlight": true}]
-        },
-        {
-          "title": "lkchat",
-          "desc": "Kirka.io live chat client",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/lkchat"}],
-          "tags": [{"label": "python", "highlight": true}]
         }
       ]
     }
