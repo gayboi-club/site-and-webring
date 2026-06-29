@@ -40,8 +40,19 @@
         {
           "title": "cat-ears-meows",
           "desc": "A silly little mod that adds cat ears and meows :3c",
-          "links": [{"label": "Repository", "href": "https://github.com/gayboi-club/cat-ears-meows"}],
+          "links": [
+            {"label": "Repository", "href": "https://github.com/gayboi-club/cat-ears-meows"},
+            {"label": "Modrinth", "href": "https://modrinth.com/mod/cat-ears-n-meows"}
+          ],
           "tags": [{"label": "mod"}, {"label": "Minecraft", "highlight": true}, {"label": "java", "highlight": true}]
+        },
+        {
+          "title": "Eggpack :3",
+          "desc": "A queer texture pack that adds cute silly things :3c",
+          "links": [
+            {"label": "Modrinth", "href": "https://modrinth.com/resourcepack/eggpack"}
+          ],
+          "tags": [{"label": "resource pack"}, {"label": "Minecraft", "highlight": true}]
         },
         {
           "title": "Pull-Em-Shorts-Off",
